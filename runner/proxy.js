@@ -2,7 +2,7 @@
     const eventSource = new EventSource("/__air_internal/sse");
 
     eventSource.addEventListener('reload', () => {
-        location.reload();
+        window.hotreload ? window.hotreload() : location.reload();
     });
 
     eventSource.addEventListener('build-failed', (event) => {
